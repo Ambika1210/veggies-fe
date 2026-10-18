@@ -15,11 +15,11 @@ const FeaturedProducts = ({
 }) => {
 
   return (
-    <section id="featured-products" className="py-10 bg-stone-50/70">
+    <section id="featured-products" className="py-6 sm:py-8 bg-stone-50/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
           <div>
             <h2 className="text-2xl font-black text-stone-900 font-display tracking-tight">
               Products

@@ -20,6 +20,7 @@ export default async function apiCall({
   method = "GET",
   body = null,
   headers = {},
+
   timeout = 10000,
 }) {
   try {
@@ -30,7 +31,7 @@ export default async function apiCall({
     if (!(body instanceof FormData)) {
       defaultHeaders["Content-Type"] = "application/json";
     }
-    
+
     // Add authorization token if available
     if (token) {
       defaultHeaders.Authorization = `Bearer ${token}`;

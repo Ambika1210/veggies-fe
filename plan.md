@@ -24,17 +24,21 @@ src/
 ├── routes/
 │   └── routePaths.js           # Route path constants
 ├── components/
-│   └── common/                 # Atomic UI primitives shared across slices
-│       ├── Button.jsx          # Reusable button with variants, sizes, and loading state
-│       ├── Badge.jsx           # Status & organic tag pills
-│       └── Skeleton.jsx        # Animated shimmer skeletons for async loading
+│   ├── common/                 # Atomic UI primitives shared across slices
+│   │   ├── Button.jsx          # Reusable button with variants, sizes, and loading state
+│   │   ├── Badge.jsx           # Status & organic tag pills
+│   │   └── Skeleton.jsx        # Animated shimmer skeletons for async loading
+│   ├── navbar/
+│   │   ├── Navbar.jsx          # Sticky navbar with logo, delivery indicator & login
+│   │   └── index.js
+│   └── footer/
+│       ├── Footer.jsx          # Footer links, trust seals, and contact details
+│       └── index.js
 ├── features/
 │   ├── landing/                # [PHASE 1 - COMPLETED] Landing / Welcome Page Slice
 │   │   ├── components/
-│   │   │   ├── Navbar.jsx              # Sticky navbar with logo, search, delivery indicator
 │   │   │   ├── HeroSection.jsx         # Hero banner, 15-min delivery badges, trust stats, CTA
-│   │   │   ├── FeaturedProducts.jsx    # Live API product grid with stock status & pagination
-│   │   │   └── Footer.jsx              # Footer links, trust seals, and contact details
+│   │   │   └── FeaturedProducts.jsx    # Live API product grid with stock status & pagination
 │   │   └── LandingPage.jsx             # Root landing page composition component
 │   ├── products/               # [PHASE 1 - COMPLETED] Product Domain Slice
 │   │   ├── services/

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Plus, Minus, AlertCircle, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
+import { AlertCircle, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { formatCurrency } from '../../../utils/formatters';
-import { useCart } from '../../cart/hooks/useCart';
 import { ProductCardSkeleton } from '../../../components/common/Skeleton';
 
 const FeaturedProducts = ({
@@ -14,12 +13,6 @@ const FeaturedProducts = ({
   prevPage,
   refetch,
 }) => {
-  const { cartItems, addToCart, updateQuantity } = useCart();
-
-  const getItemQuantity = (productId) => {
-    const item = cartItems.find((i) => i.id === productId);
-    return item ? item.quantity : 0;
-  };
 
   return (
     <section id="featured-products" className="py-10 bg-stone-50/70">
@@ -94,7 +87,6 @@ const FeaturedProducts = ({
             ))
           ) : products && products.length > 0 ? (
             products.map((product) => {
-              const qty = getItemQuantity(product.id);
               const isAvailable = product.is_available !== false;
 
               return (
@@ -126,7 +118,7 @@ const FeaturedProducts = ({
                     </h3>
                   </div>
 
-                  {/* Price & Cart Actions footer */}
+                  {/* Price & Availability footer */}
                   <div className="mt-4 pt-3.5 border-t border-stone-100 flex items-center justify-between">
                     <div>
                       <span className="text-xs text-stone-400 block leading-tight font-medium">Price</span>
@@ -135,35 +127,14 @@ const FeaturedProducts = ({
                       </span>
                     </div>
 
-                    {/* Quantity Selector / Add to Cart Button */}
-                    {!isAvailable ? (
-                      <span className="text-xs text-stone-400 font-semibold">Unavailable</span>
-                    ) : qty === 0 ? (
-                      <button
-                        onClick={() => addToCart(product, 1)}
-                        className="inline-flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-600 text-emerald-700 hover:text-white border border-emerald-300 hover:border-emerald-600 px-3.5 py-2 rounded-xl text-xs font-bold transition shadow-xs group/btn"
-                      >
-                        <Plus className="w-3.5 h-3.5 group-hover/btn:rotate-90 transition-transform" />
-                        <span>ADD</span>
-                      </button>
+                    {isAvailable ? (
+                      <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                        In Stock
+                      </span>
                     ) : (
-                      <div className="inline-flex items-center bg-emerald-700 text-white rounded-xl shadow-xs overflow-hidden">
-                        <button
-                          onClick={() => updateQuantity(product.id, qty - 1)}
-                          className="px-2.5 py-1.5 hover:bg-emerald-800 transition"
-                          title="Decrease quantity"
-                        >
-                          <Minus className="w-3.5 h-3.5" />
-                        </button>
-                        <span className="px-2 text-xs font-black select-none">{qty}</span>
-                        <button
-                          onClick={() => updateQuantity(product.id, qty + 1)}
-                          className="px-2.5 py-1.5 hover:bg-emerald-800 transition"
-                          title="Increase quantity"
-                        >
-                          <Plus className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
+                      <span className="text-xs text-stone-400 font-semibold bg-stone-100 px-2.5 py-1 rounded-lg">
+                        Unavailable
+                      </span>
                     )}
                   </div>
                 </div>

@@ -15,7 +15,7 @@ const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:7173/v1";
  * @param {number} options.timeout - Request timeout in milliseconds
  * @returns {Promise} Axios response
  */
-export default async function callApi({
+export default async function apiCall({
   endpoint,
   method = "GET",
   body = null,

@@ -1,4 +1,4 @@
-import callApi, { handleApiError } from '../../../api/callApi';
+import apiCall, { handleApiError } from '../../../api/callApi';
 
 /**
  * Login user with credentials (email/mobile + password)
@@ -6,7 +6,7 @@ import callApi, { handleApiError } from '../../../api/callApi';
  */
 export const login = async (credentials) => {
   try {
-    const response = await callApi({
+    const response = await apiCall({
       endpoint: 'auth/login',
       method: 'POST',
       body: credentials,
@@ -33,7 +33,7 @@ export const login = async (credentials) => {
  */
 export const register = async (userData) => {
   try {
-    const response = await callApi({
+    const response = await apiCall({
       endpoint: 'auth/register',
       method: 'POST',
       body: userData,

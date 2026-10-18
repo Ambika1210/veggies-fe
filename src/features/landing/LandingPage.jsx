@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import FeaturedProducts from './components/FeaturedProducts';
-import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import { useProducts } from '../products/hooks/useProducts';
 
@@ -28,9 +27,6 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAFAF8]">
-      {/* Slide-over cart drawer */}
-      <CartDrawer />
-
       {/* Top Navbar */}
       <Navbar onSearch={handleSearch} />
 

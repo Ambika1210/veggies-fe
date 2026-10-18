@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Search, Sparkles, MapPin, Zap, User, Menu, X } from 'lucide-react';
-import { useCart } from '../../cart/hooks/useCart';
-import { formatCurrency } from '../../../utils/formatters';
+import { Search, Sparkles, MapPin, Zap, User, Menu, X } from 'lucide-react';
 
 const Navbar = ({ onSearch, onCategorySelect }) => {
-  const { totalItemsCount, subtotal, setIsCartOpen } = useCart();
   const [searchInput, setSearchInput] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -93,38 +90,15 @@ const Navbar = ({ onSearch, onCategorySelect }) => {
             </form>
           </div>
 
-          {/* Right actions: Login & Cart */}
+          {/* Right actions: Login */}
           <div className="flex items-center gap-3">
             {/* Sign in button */}
             <button
               onClick={() => alert('Authentication slice is scheduled in plan.md! SuperAdmin and User login views will be active shortly.')}
-              className="hidden sm:flex items-center gap-2 text-stone-700 hover:text-emerald-700 px-3.5 py-2 text-sm font-semibold rounded-xl hover:bg-stone-100 transition"
+              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 text-sm font-semibold rounded-xl shadow-xs transition"
             >
               <User className="w-4 h-4" />
               Sign In
-            </button>
-
-            {/* Cart trigger button */}
-            <button
-              onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-3 bg-stone-900 hover:bg-stone-800 active:scale-95 text-white px-4 py-2.5 rounded-xl shadow-md transition group"
-            >
-              <div className="relative">
-                <ShoppingBag className="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform" />
-                {totalItemsCount > 0 && (
-                  <span className="absolute -top-2 -right-2.5 bg-emerald-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-stone-900 animate-pulse">
-                    {totalItemsCount}
-                  </span>
-                )}
-              </div>
-              <div className="text-left hidden sm:block">
-                <span className="text-[10px] text-stone-400 uppercase tracking-wider block font-semibold leading-none">
-                  Cart
-                </span>
-                <span className="text-xs font-bold text-emerald-400 leading-tight">
-                  {totalItemsCount > 0 ? formatCurrency(subtotal) : '0 items'}
-                </span>
-              </div>
             </button>
 
             {/* Mobile menu toggle */}

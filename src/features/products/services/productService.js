@@ -1,4 +1,4 @@
-import callApi, { handleApiError } from '../../../api/callApi';
+import apiCall, { handleApiError } from '../../../api/callApi';
 
 /**
  * Fetch paginated list of products with optional search query.
@@ -14,7 +14,7 @@ export const getAllProducts = async ({ page = 1, limit = 8, search = '' } = {}) 
       query.append('search', search.trim());
     }
 
-    const response = await callApi({
+    const response = await apiCall({
       endpoint: `products/get-all-products?${query.toString()}`,
       method: 'GET',
     });
@@ -31,7 +31,7 @@ export const getAllProducts = async ({ page = 1, limit = 8, search = '' } = {}) 
  */
 export const getProductById = async (id) => {
   try {
-    const response = await callApi({
+    const response = await apiCall({
       endpoint: `products/${id}/get-product-detail`,
       method: 'GET',
     });
@@ -48,7 +48,7 @@ export const getProductById = async (id) => {
  */
 export const createProduct = async (payload) => {
   try {
-    const response = await callApi({
+    const response = await apiCall({
       endpoint: 'products/create-product',
       method: 'POST',
       body: payload,

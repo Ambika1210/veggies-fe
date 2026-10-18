@@ -31,10 +31,9 @@ src/
 ├── features/
 │   ├── landing/                # [PHASE 1 - COMPLETED] Landing / Welcome Page Slice
 │   │   ├── components/
-│   │   │   ├── Navbar.jsx              # Sticky navbar with logo, search, delivery indicator, cart trigger
+│   │   │   ├── Navbar.jsx              # Sticky navbar with logo, search, delivery indicator
 │   │   │   ├── HeroSection.jsx         # Hero banner, 15-min delivery badges, trust stats, CTA
-│   │   │   ├── FeaturedProducts.jsx    # Live API product grid with quantity selectors & pagination
-│   │   │   ├── CartDrawer.jsx          # Slide-over cart drawer with free delivery meter
+│   │   │   ├── FeaturedProducts.jsx    # Live API product grid with stock status & pagination
 │   │   │   └── Footer.jsx              # Footer links, trust seals, and contact details
 │   │   └── LandingPage.jsx             # Root landing page composition component
 │   ├── products/               # [PHASE 1 - COMPLETED] Product Domain Slice
@@ -42,11 +41,7 @@ src/
 │   │   │   └── productService.js       # Axios calls for get-all-products, details, creation
 │   │   └── hooks/
 │   │       └── useProducts.js          # Hook for pagination, live search debounce, category filter
-│   ├── cart/                   # [PHASE 1 - COMPLETED] Cart Domain Slice
-│   │   ├── context/
-│   │   │   └── CartContext.jsx         # Cart state, localStorage sync, quantity modifiers, subtotal
-│   │   └── hooks/
-│   │       └── useCart.js              # Hook exposing cart items, total, and drawer state
+│   ├── cart/                   # [REMOVED] Cart Domain Slice
 │   ├── auth/                   # [PHASE 2 - PLANNED] Authentication Slice
 │   ├── catalog/                # [PHASE 3 - PLANNED] Full Catalog & Faceted Search Slice
 │   ├── product-detail/         # [PHASE 4 - PLANNED] Single Product Detail & Nutrition Slice
